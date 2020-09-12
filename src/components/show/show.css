@@ -1,0 +1,25 @@
+.show {
+    background-color: #ffffff;
+    width: 700px;
+    height: 680px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    padding: 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow-x: hidden;
+}
+
+.show::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+.show::-webkit-scrollbar-thumb {
+    background: #7CA5BB; 
+    border-radius: 20px;
+}
+
+.show::-webkit-scrollbar-thumb:hover {
+    background: #020887; 
+}

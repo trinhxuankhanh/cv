@@ -1,0 +1,79 @@
+.base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    width: 480px;
+    height: 700px;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+.base__img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    overflow: hidden;
+    background-image: url('https://scontent.fdad2-1.fna.fbcdn.net/v/t1.15752-9/118590557_350291169478579_3281211368979895866_n.jpg?_nc_cat=101&_nc_sid=b96e70&_nc_ohc=mEEjzbH8jUUAX8v1gfH&_nc_ht=scontent.fdad2-1.fna&oh=57d4a6e3e268b4787cf01b18403e4dd1&oe=5F77F20D');
+}
+
+.base__img::after {
+    content: "";
+    background-color: #ffffff;
+    transform: rotate(70deg);
+    position: absolute;
+    bottom: -50%;
+    right: 0;
+    width: 200px;
+    height: 300px;
+}
+
+.base__img::before {
+    content: "";
+    background-color: #ffffff;
+    transform: rotate(110deg);
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: 200px;
+    height: 300px;
+}
+
+.base__contact {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    justify-content: space-between;
+}
+
+.base__name {
+    font-size: 30px;
+    margin: 1rem 0;
+}
+
+.base__pos {
+    color: #020887;
+    font-size: 23px;
+    margin-bottom: 1rem;
+}
+
+.base__contact a img {
+    width: 20px;
+    height: 20px;
+}
+
+.base::before {
+    content: "";
+    background-color: #c6ebbe;
+    position: absolute;
+    top: -2%;
+    left: -3%;
+    width: 480px;
+    height: 700px;
+    z-index: -1;
+    border-radius: 4px;
+    opacity: .5;
+}
