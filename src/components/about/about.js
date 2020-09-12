@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import menuApi from '../../api/menuApi';
-import './about.css'
+import './about.css';
+import CarouselPage from './carousel/carousel';
 
 class About extends Component {
     constructor(progs) {
         super(progs);
 
         this.state = {
-            about: {}
+            about: {},
+            service: []
         }
     }
 
@@ -15,6 +17,7 @@ class About extends Component {
         menuApi.getMenu().then(response => {
             this.setState({
                 about: response['about'],
+                service: response['about']['service']
             })
         }).catch(error => {
             console.log(error)
@@ -22,6 +25,7 @@ class About extends Component {
     }
 
     render() {
+        let { service } = this.state;
         const { information } = this.state.about;
         return <div className="row">
             <div className="title">
@@ -57,6 +61,23 @@ class About extends Component {
                     </ul>
                 </div>
             }
+            <div className="title">
+                <span>My</span>
+                Service
+            </div>
+            <div className="row1 about">
+                {
+                    service && service.map((item, index) => {
+                        return <div key={index} className="about__service">
+                            <div><img src={item.icon} alt="icon"></img></div>
+                            <p>{item.name}</p>
+                            <span>{item.title}</span>
+                        </div>
+                    })
+                }
+            </div>
+
+            <CarouselPage></CarouselPage>
         </div>
     }
 }

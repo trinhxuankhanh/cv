@@ -1,0 +1,91 @@
+.resume {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.resume__edu,
+.resume__exp {
+    display: flex;
+    flex-direction: column;
+    flex: 50%;
+    padding: 20px;
+}
+
+.resume__eduicon,
+.resume__expicon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.resume__eduicon img,
+.resume__expicon img {
+    width: 30px;
+    height: 30px;
+    margin-right: 1em;
+}
+
+.resume__eduicon p,
+.resume__expicon p {
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.time {
+    padding: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.resume::after,
+.item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: radial-gradient(ellipse at left, #dddddd 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.resume__edu {
+    position: relative;
+}
+
+.resume__edu::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: radial-gradient(ellipse at left, #dddddd 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.name {
+    font-weight: 600;
+    font-size: 20px;
+    color: black;
+}
+
+.name:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.position {
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
+    opacity: .7;
+    margin-bottom: 1rem;
+}
