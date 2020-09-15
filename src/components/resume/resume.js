@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import menuApi from '../../api/menuApi';
-import './resume.css'
+import './resume.css';
+import Myskill from './myskill/myskill'
 
 class Resume extends Component {
     constructor(progs) {
@@ -8,7 +9,8 @@ class Resume extends Component {
 
         this.state = {
             education: [],
-            experience: []
+            experience: [],
+            myskill: {}
         }
     }
 
@@ -16,7 +18,8 @@ class Resume extends Component {
         menuApi.getMenu().then(response => {
             this.setState({
                 education: response['resume']['resumedetail']['education'],
-                experience: response['resume']['resumedetail']['experience']
+                experience: response['resume']['resumedetail']['experience'],
+                myskill: response['resume']['myskill']
             })
         })
 
@@ -24,7 +27,7 @@ class Resume extends Component {
     }
 
     render() {
-        let { education, experience } = this.state;
+        let { education, experience, myskill } = this.state;
         return <div className="row">
             <div className="title">
                 <span>Resume</span>
@@ -70,6 +73,7 @@ class Resume extends Component {
                     </div>
                 </div>
             </div>
+            <Myskill data={myskill}></Myskill>
         </div>
     }
 }

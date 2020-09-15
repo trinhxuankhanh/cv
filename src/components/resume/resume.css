@@ -89,3 +89,99 @@
     opacity: .7;
     margin-bottom: 1rem;
 }
+
+.resume__myskill {
+    flex-wrap: wrap;
+    flex: 100%;
+}
+
+.myskill {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    flex: 100%;
+}
+
+.skill {
+    display: flex;
+    flex: 50%;
+    padding: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    flex-direction: column;
+}
+
+.skill__icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.skill__icon img {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.skill::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: radial-gradient(ellipse at left, #dddddd 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.skill__icon span {
+    font-size: 20px;
+}
+
+.skill__main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 100%;
+    justify-content: space-between;
+    padding-top: .5rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.skill__main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: radial-gradient(ellipse at left, #dddddd 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.skill__main label {
+    margin: 0 1rem 0 0;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 2;
+}
+
+.skill__main--dot div {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
