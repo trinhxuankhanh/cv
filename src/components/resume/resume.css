@@ -185,3 +185,10 @@
     flex-wrap: nowrap;
     align-items: center;
 }
+
+.skill__main--m0 {
+    margin: 0;
+    padding: 0;
+    justify-content: unset;
+    flex: 50%;
+}

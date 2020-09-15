@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 class Myskill extends Component {
     constructor(props) {
         super(props)
 
-        this.myref = React.createRef();
+        this.wordpress = React.createRef();
+        this.react = React.createRef();
+        this.angular = React.createRef();
+        this.htmlcss = React.createRef();
+        this.sql = React.createRef();
+        this.node = React.createRef();
+    }
+
+    progressLoading(data, myref, color) {
+        if (data) {
+            let shape = Array.from(myref);
+            let number = data / 10;
+            let unold = Math.floor(number);
+            let old = number - unold;
+            shape.map((item, index) => {
+                return (index < unold) ? item.style.background = color : item.style.background = '#ddd';
+            })
+            if (old !== 0) {
+                shape[unold].style.background = color;
+                shape[unold].style.background = `linear-gradient(90deg, ${color} ${100 - (old * 100)}%, #ddd ${old * 100}%)`;
+            }
+        }
     }
 
     componentDidUpdate() {
-        if ( this.props.data.coding ) {
-            let dots = Array.from(this.myref.current.children);
-            let number = this.props.data.coding.wordpress / 10;
-            let unold = Math.floor(number)
-            let old = number - unold;
-            dots.map((item, index) => {
-                if(index < unold) {
-                    return item.style.background = 'red';
-                }
-                return item.style.background = '#ddd';
-            })
-            dots[unold].style.background = 'rgb(235,28,28)';
-            dots[unold].style.background = `linear-gradient(90deg, rgba(235,28,28,1) ${old*100}%, #ddd ${100-(old*100)}%)`;
-        }
+        this.progressLoading(this.props.data.coding.wordpress, this.wordpress.current.children, '#007bff')
+        this.progressLoading(this.props.data.coding.react, this.react.current.children, '#007bff')
+        this.progressLoading(this.props.data.coding.angular, this.angular.current.children, '#007bff')
+        this.progressLoading(this.props.data.coding.htmlcss, this.htmlcss.current.children, '#007bff')
+        this.progressLoading(this.props.data.coding.sql, this.sql.current.children, '#007bff')
+        this.progressLoading(this.props.data.coding.node, this.node.current.children, '#007bff')
     }
 
     render() {
@@ -66,7 +81,82 @@ class Myskill extends Component {
                         <ul>
                             <li className="skill__main skill__main--dot">
                                 <span>Wordpress</span>
-                                <div ref={this.myref}>
+                                <div ref={this.wordpress}>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                </div>
+                            </li>
+                            <li className="skill__main skill__main--dot">
+                                <span>React</span>
+                                <div ref={this.react}>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                </div>
+                            </li>
+                            <li className="skill__main skill__main--dot">
+                                <span>Angular</span>
+                                <div ref={this.angular}>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                </div>
+                            </li>
+                            <li className="skill__main skill__main--dot">
+                                <span>HTMl / CSS</span>
+                                <div ref={this.htmlcss}>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                </div>
+                            </li>
+                            <li className="skill__main skill__main--dot">
+                                <span>SQL</span>
+                                <div ref={this.sql}>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                </div>
+                            </li>
+                            <li className="skill__main skill__main--dot">
+                                <span>Node</span>
+                                <div ref={this.node}>
                                     <span className="dot"></span>
                                     <span className="dot"></span>
                                     <span className="dot"></span>
@@ -88,8 +178,13 @@ class Myskill extends Component {
                             <img src={languages.icon} alt="icon"></img>
                             <span>Languages</span>
                         </div>
-                        <div className="skill__main">
-                            <div></div>
+                        <div className="skill__main skill__main--m0">
+                            <CircularProgressbarWithChildren value={languages.english}>
+                                <img style={{ width: 100, marginTop: -5 }} src="https://i.imgur.com/b9NyUGm.png" alt="doge" />
+                                <div style={{ fontSize: 16, marginTop: -5 }}>
+                                <strong>{`English: ${languages.english}%`}</strong>
+                            </div>
+                            </CircularProgressbarWithChildren>
                         </div>
                     </div>
                 }
@@ -99,9 +194,14 @@ class Myskill extends Component {
                             <img src={knowledge.icon} alt="icon"></img>
                             <span>Knowledge</span>
                         </div>
-                        <div className="skill__main">
-                            <div></div>
-                        </div>
+                        <ul>
+                            {
+                                knowledge.skill.map((item, index) => <li className="skill__main" key={index}>
+                                    <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828643.svg" width="20px" height="20px" alt="icon"></img>
+                                    <span>{item}</span>
+                                </li>)
+                            }
+                        </ul>
                     </div>
                 }
             </div>
