@@ -180,8 +180,8 @@ class Myskill extends Component {
                         </div>
                         <div className="skill__main skill__main--m0">
                             <CircularProgressbarWithChildren value={languages.english}>
-                                <img style={{ width: 100, marginTop: -5 }} src="https://i.imgur.com/b9NyUGm.png" alt="doge" />
-                                <div style={{ fontSize: 16, marginTop: -5 }}>
+                                <img style={{ width: 170, marginTop: -20 }} src="https://i.imgur.com/b9NyUGm.png" alt="doge" />
+                                <div style={{ fontSize: 16, marginTop: -20 }}>
                                 <strong>{`English: ${languages.english}%`}</strong>
                             </div>
                             </CircularProgressbarWithChildren>
