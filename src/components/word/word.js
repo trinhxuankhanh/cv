@@ -41,28 +41,22 @@ class Word extends Component {
     
     onGetPhoto() {
         Array.from(this.all.current.children).map(item => {
-            item.style.display = "none"
-            if(item.className === "items item__photo") {
-                item.style.display = "flex"
-            }
+            item.style.display = "none";
+            return item.style.display = (item.className === "items item__photo") ? "flex" : "none";
         })
     }
 
     onGetVideo() {
         Array.from(this.all.current.children).map(item => {
             item.style.display = "none"
-            if(item.className === "items item__video") {
-                item.style.display = "flex"
-            }
-        })
+            return item.style.display = (item.className === "items item__video") ? item.style.display = "flex" : "none"; }
+        )
     }
 
     onGetDesign() {
         Array.from(this.all.current.children).map(item => {
             item.style.display = "none"
-            if(item.className === "items item__design") {
-                item.style.display = "flex"
-            }
+            return item.style.display = (item.className === "items item__design") ? "flex" : "none";
         })
     }
 
@@ -111,7 +105,7 @@ class Word extends Component {
                                 <span>{item.name}</span>
                                 <div ref={this.divimgnone} className="zoom3">
                                     <span className="close" onClick={() => this.onOutZoom()}>&times;</span>
-                                    <img className="modal-content" ref={this.imgzoom1}></img>
+                                    <img className="modal-content" alt="img" ref={this.imgzoom1}></img>
                                     <div ref={this.screen1} className="caption"></div>
                                 </div>
                             </li>
@@ -124,7 +118,7 @@ class Word extends Component {
                                 <span>{item.name}</span>
                                 <div ref={this.divnonevideo} className="zoom1">
                                     <span className="close" onClick={() => this.onOutZoom()}>&times;</span>
-                                    <iframe className="modal-content modal-contentvideo" ref={this.videozoom} src={item.link} frameBorder="0"
+                                    <iframe title="youtube" className="modal-content modal-contentvideo" ref={this.videozoom} src={item.link} frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen></iframe>
                                     <div ref={this.screen} className="caption"></div>
@@ -139,7 +133,7 @@ class Word extends Component {
                                 <span>{item.name}</span>
                                 <div ref={this.divnone} className="zoom">
                                     <span className="close" onClick={() => this.onOutZoom()}>&times;</span>
-                                    <img className="modal-content" ref={this.imgzoom}></img>
+                                    <img className="modal-content" alt="img" ref={this.imgzoom}></img>
                                     <div ref={this.screen} className="caption"></div>
                                 </div>
                             </li>

@@ -53,19 +53,19 @@ class Myskill extends Component {
                             <span>Design</span>
                         </div>
                         <ul className="skills">
-                            <li className="skill__main">
+                            <li className="skill__main f-10">
                                 <label htmlFor="web">Website</label>
                                 <progress id="web" value={design.web} max="100"> {design.web}% </progress>
                             </li>
-                            <li className="skill__main">
+                            <li className="skill__main f-10">
                                 <label htmlFor="edit">Edit</label>
                                 <progress id="edit" value={design.edit} max="100"> {design.edit}% </progress>
                             </li>
-                            <li className="skill__main">
+                            <li className="skill__main f-10">
                                 <label htmlFor="record">Record</label>
                                 <progress id="wrecordeb" value={design.record} max="100"> {design.record}% </progress>
                             </li>
-                            <li className="skill__main">
+                            <li className="skill__main f-10">
                                 <label htmlFor="app">Application</label>
                                 <progress id="app" value={design.app} max="100"> {design.app}% </progress>
                             </li>

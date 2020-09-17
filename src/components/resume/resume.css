@@ -130,6 +130,7 @@
     flex-direction: column;
     margin: 0;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .skill::before {
@@ -191,4 +192,8 @@
     padding: 0;
     justify-content: unset;
     flex: 50%;
+}
+
+.f-10 {
+    flex: 10%;
 }
