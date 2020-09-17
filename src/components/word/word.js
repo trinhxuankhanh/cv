@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import menuApi from '../../api/menuApi';
 import './word.css';
+import { css } from "@emotion/core";
+import PacmanLoader from "react-spinners/PacmanLoader";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 class Word extends Component {
     constructor(progs) {
@@ -9,7 +17,8 @@ class Word extends Component {
         this.state = {
             photo: [],
             video: [],
-            design: []
+            design: [],
+            loading: true
         }
 
         this.all = React.createRef();
@@ -33,12 +42,16 @@ class Word extends Component {
         }).catch(error => {
             console.log(error)
         })
+
+        setTimeout(() => {
+            return this.setState({ loading: false })
+        }, 3000)
     }
 
     onGetAllItem() {
         Array.from(this.all.current.children).map(item => item.style.display = "flex")
     }
-    
+
     onGetPhoto() {
         Array.from(this.all.current.children).map(item => {
             item.style.display = "none";
@@ -49,7 +62,8 @@ class Word extends Component {
     onGetVideo() {
         Array.from(this.all.current.children).map(item => {
             item.style.display = "none"
-            return item.style.display = (item.className === "items item__video") ? item.style.display = "flex" : "none"; }
+            return item.style.display = (item.className === "items item__video") ? item.style.display = "flex" : "none";
+        }
         )
     }
 
@@ -85,63 +99,76 @@ class Word extends Component {
     }
 
     render() {
-        let { photo, video, design } = this.state
-        return <div className="word">
-            <div className="title">
-                <span>Recent</span>Words
+        let { loading, photo, video, design } = this.state
+        return <div>
+            {
+                loading ? <div className="sweet-loading">
+                    <PacmanLoader
+                        css={override}
+                        size={30}
+                        color={"#7ED321"}
+                        margin={2}
+                        loading={loading}
+                    />
+                </div> : <div className="word">
+                        <div className="title">
+                            <span>Recent</span>Words
             </div>
-            <ul className="word__menu">
-                <li onClick={() => this.onGetAllItem()}>All</li>
-                <li onClick={() => this.onGetPhoto()}>Photo</li>
-                <li onClick={() => this.onGetVideo()}>Video</li>
-                <li onClick={() => this.onGetDesign()}>Design</li>
-            </ul>
-            <div className="word__main">
-                <ul ref={this.all}>
-                    {
-                        photo && photo.map((item, index) => {
-                            return <li key={index} className="items item__photo">
-                                <img src={item.link} alt={item.name} onClick={(e) => this.zoomImg1(e)}></img>
-                                <span>{item.name}</span>
-                                <div ref={this.divimgnone} className="zoom3">
-                                    <span className="close" onClick={() => this.onOutZoom()}>&times;</span>
-                                    <img className="modal-content" alt="img" ref={this.imgzoom1}></img>
-                                    <div ref={this.screen1} className="caption"></div>
-                                </div>
-                            </li>
-                        })
-                    }
-                    {
-                        video && video.map((item, index) => {
-                            return <li key={index} className="items item__video">
-                                <img alt={item.name} src={item.img} title={item.link} onClick={(e) => this.zoomVideo(e)}></img>
-                                <span>{item.name}</span>
-                                <div ref={this.divnonevideo} className="zoom1">
-                                    <span className="close" onClick={() => this.onOutZoom()}>&times;</span>
-                                    <iframe title="youtube" className="modal-content modal-contentvideo" ref={this.videozoom} src={item.link} frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen></iframe>
-                                    <div ref={this.screen} className="caption"></div>
-                                </div>
-                            </li>
-                        })
-                    }
-                    {
-                        design && design.map((item, index) => {
-                            return <li key={index} className="items item__design">
-                                <img src={item.link} alt={item.name} onClick={(e) => this.zoomImg(e)}></img>
-                                <span>{item.name}</span>
-                                <div ref={this.divnone} className="zoom">
-                                    <span className="close" onClick={() => this.onOutZoom()}>&times;</span>
-                                    <img className="modal-content" alt="img" ref={this.imgzoom}></img>
-                                    <div ref={this.screen} className="caption"></div>
-                                </div>
-                            </li>
-                        })
-                    }
-                </ul>
-            </div>
+                        <ul className="word__menu">
+                            <li onClick={() => this.onGetAllItem()}>All</li>
+                            <li onClick={() => this.onGetPhoto()}>Photo</li>
+                            <li onClick={() => this.onGetVideo()}>Video</li>
+                            <li onClick={() => this.onGetDesign()}>Design</li>
+                        </ul>
+                        <div className="word__main">
+                            <ul ref={this.all}>
+                                {
+                                    photo && photo.map((item, index) => {
+                                        return <li key={index} className="items item__photo">
+                                            <img src={item.link} alt={item.name} onClick={(e) => this.zoomImg1(e)}></img>
+                                            <span>{item.name}</span>
+                                            <div ref={this.divimgnone} className="zoom3">
+                                                <span className="close" onClick={() => this.onOutZoom()}>&times;</span>
+                                                <img className="modal-content" alt="img" ref={this.imgzoom1}></img>
+                                                <div ref={this.screen1} className="caption"></div>
+                                            </div>
+                                        </li>
+                                    })
+                                }
+                                {
+                                    video && video.map((item, index) => {
+                                        return <li key={index} className="items item__video">
+                                            <img alt={item.name} src={item.img} title={item.link} onClick={(e) => this.zoomVideo(e)}></img>
+                                            <span>{item.name}</span>
+                                            <div ref={this.divnonevideo} className="zoom1">
+                                                <span className="close" onClick={() => this.onOutZoom()}>&times;</span>
+                                                <iframe title="youtube" className="modal-content modal-contentvideo" ref={this.videozoom} src={item.link} frameBorder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen></iframe>
+                                                <div ref={this.screen} className="caption"></div>
+                                            </div>
+                                        </li>
+                                    })
+                                }
+                                {
+                                    design && design.map((item, index) => {
+                                        return <li key={index} className="items item__design">
+                                            <img src={item.link} alt={item.name} onClick={(e) => this.zoomImg(e)}></img>
+                                            <span>{item.name}</span>
+                                            <div ref={this.divnone} className="zoom">
+                                                <span className="close" onClick={() => this.onOutZoom()}>&times;</span>
+                                                <img className="modal-content" alt="img" ref={this.imgzoom}></img>
+                                                <div ref={this.screen} className="caption"></div>
+                                            </div>
+                                        </li>
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    </div>
+            }
         </div>
+
     }
 }
 

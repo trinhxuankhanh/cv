@@ -8,7 +8,8 @@ class Menu extends Component {
         super(progs)
 
         this.state = {
-            menu: {}
+            menu: {},
+            loading: false
         }
     }
 
@@ -20,45 +21,53 @@ class Menu extends Component {
         }).catch(error => {
             console.log(error)
         })
+
+        setTimeout(() => {
+            return this.setState({ loading: true })
+        }, 2000)
     }
 
     render() {
         const { about, word, resume, contact } = this.state.menu
         return (
-            <ul className="menu">
-                <li>
-                    <Link to="/">
-                        {
-                            about && <img src={about.icon} alt="icon" height="20px" width="20px"></img>
-                        }
-                        About
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/word">
-                        {
-                            word && <img src={word.icon} alt="icon" height="20px" width="20px"></img>
-                        }
-                        Word
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/resume">
-                        {
-                            resume && <img src={resume.icon} alt="icon" height="20px" width="20px"></img>
-                        }
-                        Resume
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/contact">
-                        {
-                            contact && <img src={contact.icon} alt="icon" height="20px" width="20px"></img>
-                        }
-                        Contact
-                    </Link>
-                </li>
-            </ul>
+            <div className="mr-3">
+                {
+                    this.state.loading ? <ul className="menu">
+                        <li>
+                            <Link to="/">
+                                {
+                                    about && <img src={about.icon} alt="icon" height="20px" width="20px"></img>
+                                }
+                                About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/word">
+                                {
+                                    word && <img src={word.icon} alt="icon" height="20px" width="20px"></img>
+                                }
+                                Word
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/resume">
+                                {
+                                    resume && <img src={resume.icon} alt="icon" height="20px" width="20px"></img>
+                                }
+                                Resume
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/contact">
+                                {
+                                    contact && <img src={contact.icon} alt="icon" height="20px" width="20px"></img>
+                                }
+                                Contact
+                            </Link>
+                        </li>
+                    </ul> : <div></div>
+                }
+            </div>
         )
     }
 }
