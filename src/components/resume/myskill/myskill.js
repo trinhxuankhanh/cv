@@ -30,7 +30,7 @@ class Myskill extends Component {
         }
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         this.progressLoading(this.props.data.coding.wordpress, this.wordpress.current.children, '#007bff')
         this.progressLoading(this.props.data.coding.react, this.react.current.children, '#007bff')
         this.progressLoading(this.props.data.coding.angular, this.angular.current.children, '#007bff')
