@@ -145,3 +145,22 @@ body {
   }
 
 }
+
+.bg--dark {
+    background: rgb(13,18,54);
+    background: linear-gradient(153deg, rgba(13,18,54,1) 0%, rgba(72,75,102,1) 100%);
+}
+
+.content__item--dark .base::before{background-color: rgba(72,75,102,1);}
+
+.content__item--dark .base .base__main .base__img::before,
+.content__item--dark .base .base__main .base__img::after {background-color: rgb(13,18,54);}
+
+.content__item--dark .base .base__main .base__pos,
+.content__item--dark .show .row div .resume .resume__edu .resume__eduitem .item .name,
+.content__item--dark .show .row div .resume .resume__edu .resume__eduitem .item .name,
+.content__item--dark .show .row div .resume .resume__exp .resume__expitem .item .name,
+.content__item--dark .show .row div .resume .resume__exp .resume__expitem .item .position {color: #fff}
+
+.content__item--dark .show .row div .resume .resume__exp .resume__expitem .item .my-3 .time,
+.content__item--dark .show .row div .resume .resume__edu .resume__eduitem .item .my-3 .time {color: #fff; border: 1px solid #fff;}

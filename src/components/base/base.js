@@ -8,6 +8,7 @@ const override = css`
   display: block;
   margin: 0 auto;
   border-color: red;
+  margin-top: 50%;
 `;
 
 class Base extends Component {
@@ -18,7 +19,8 @@ class Base extends Component {
             base: {},
             contact: {},
             icon: '',
-            loading: true
+            loading: true,
+            mode: true
         }
     }
 
@@ -33,7 +35,7 @@ class Base extends Component {
         })
 
         setTimeout(() => {
-            return this.setState({loading: false})
+            return this.setState({ loading: false })
         }, 2000)
     }
 
@@ -47,8 +49,39 @@ class Base extends Component {
         }
     }
 
+    changeMode() {
+        this.setState({ mode: !this.state.mode })
+
+        if (this.state.mode) {
+            this.props.mode.current.children[1].children[0].children[0].style.background = 'rgb(13,18,54)';
+            this.props.mode.current.children[1].children[0].children[0].style.color = '#fff';
+            this.props.mode.current.children[1].children[1].style.background = 'rgb(13,18,54)';
+            this.props.mode.current.children[1].children[1].style.color = '#fff';
+            this.props.mode.current.children[0].children[0].style.background = 'rgb(13,18,54)';
+            Array.from(this.props.mode.current.children[0].children[0].children).map(item =>
+                item.children[0].style.color = '#fff');
+
+            this.props.bg.current.className = "area bg--dark"
+
+            this.props.mode.current.children[1].className = "content content__item--dark"
+        } else {
+            this.props.mode.current.children[1].children[0].children[0].style.background = '#fff';
+            this.props.mode.current.children[1].children[0].children[0].style.color = '#323232';
+            this.props.mode.current.children[1].children[1].style.background = '#fff';
+            this.props.mode.current.children[1].children[1].style.color = '#323232';
+            this.props.mode.current.children[0].children[0].style.background = '#fff';
+            Array.from(this.props.mode.current.children[0].children[0].children).map(item =>
+                item.children[0].style.color = '#323232');
+
+            this.props.bg.current.className = "area"
+
+            this.props.mode.current.children[1].className = "content"
+        }
+
+    }
+
     render() {
-        const { img, name, position } = this.state.base;
+        const {cv, img, name, position } = this.state.base;
         const { github, facebook, gmail, phone } = this.state.contact;
         return (
             <div className="base">
@@ -61,7 +94,8 @@ class Base extends Component {
                                 color={"#7ED321"}
                                 loading={this.state.loading}
                             />
-                        </div> : <div className="base">
+                        </div> : <div className="base base__main">
+
                             <div className="base__img">
                                 <img src={img} alt="avt"></img>
                             </div>
@@ -87,6 +121,14 @@ class Base extends Component {
                                     <img src={phone.icon} alt="icon"></img>
                                 </a>}
                             </div>
+
+                            <div className="base__bot">
+                                {
+                                    cv && <a href="#downcv" onClick={() => window.open(cv)} className="btn btn-outline-primary">Download CV</a>
+                                }
+                                <button onClick={() => this.changeMode()} type="button" className="btn btn-outline-success">Dard Mode</button>
+                            </div>
+
                         </div>
                 }
             </div>

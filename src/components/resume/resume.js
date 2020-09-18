@@ -83,7 +83,7 @@ class Resume extends Component {
                                         experience && experience.map((item, index) => {
                                             return <div key={index} className="item">
                                                 <div className="my-3"><span className="time">{item.time}</span></div>
-                                                <a href={item.link} className="name">{item.name}</a>
+                                                <a onClick={() => window.open(item.link)} href="#viewgit" className="name">{item.name}</a>
                                                 <span className="position">{item.position}</span>
                                                 <p>{item.location}</p>
                                                 <p>{item.description}</p>

@@ -78,6 +78,24 @@
     opacity: .5;
 }
 
+.base__main {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .sweet-loading {
     margin-top: 50%;
+}
+
+.base__bot {
+    padding: 3rem 5rem 2rem 5rem;
+}
+
+.base__bot a,
+.base__bot button {
+    padding: 20px;
+}
+
+.base__bot a {
+    margin-right: 2rem;
 }
