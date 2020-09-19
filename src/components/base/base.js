@@ -81,8 +81,8 @@ class Base extends Component {
     }
 
     render() {
-        const {cv, img, name, position } = this.state.base;
-        const { github, facebook, gmail, phone } = this.state.contact;
+        const { cv, img, name, position } = this.state.base;
+        const { discord, github, facebook, gmail, phone } = this.state.contact;
         return (
             <div className="base">
                 {
@@ -105,10 +105,12 @@ class Base extends Component {
 
                             <div className="base__contact">
                                 {github && <a href={github.link}
+                                    onClick={() => window.open(github.link)}
                                     onMouseEnter={(e) => this.changeIcon(github.changeicon, github.icon, e)}>
                                     <img src={github.icon} alt="icon"></img>
                                 </a>}
                                 {facebook && <a href={facebook.link}
+                                    onClick={() => window.open(facebook.link)}
                                     onMouseEnter={(e) => this.changeIcon(facebook.changeicon, facebook.icon, e)}>
                                     <img src={facebook.icon} alt="icon"></img>
                                 </a>}
@@ -119,6 +121,11 @@ class Base extends Component {
                                 {phone && <a href={`tel:${phone.link}`}
                                     onMouseEnter={(e) => this.changeIcon(phone.changeicon, phone.icon, e)}>
                                     <img src={phone.icon} alt="icon"></img>
+                                </a>}
+                                {discord && <a href={discord.link}
+                                    onClick={() => window.open(discord.link)}
+                                    onMouseEnter={(e) => this.changeIcon(discord.changeicon, discord.icon, e)}>
+                                    <img src={discord.icon} alt="icon"></img>
                                 </a>}
                             </div>
 

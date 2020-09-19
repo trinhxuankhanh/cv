@@ -180,7 +180,7 @@ class Myskill extends Component {
                         </div>
                         <div className="skill__main skill__main--m0">
                             <CircularProgressbarWithChildren value={languages.english}>
-                                <img style={{ width: 170, marginTop: -20 }} src="https://i.imgur.com/b9NyUGm.png" alt="doge" />
+                                <img style={{ width: 150, marginTop: -20 }} src="https://i.imgur.com/b9NyUGm.png" alt="doge" />
                                 <div style={{ fontSize: 16, marginTop: -20 }}>
                                 <strong>{`English: ${languages.english}%`}</strong>
                             </div>
@@ -189,7 +189,7 @@ class Myskill extends Component {
                     </div>
                 }
                 {
-                    knowledge && <div className="skill">
+                    knowledge && <div className="skill skillknow">
                         <div className="skill__icon">
                             <img src={knowledge.icon} alt="icon"></img>
                             <span>Knowledge</span>

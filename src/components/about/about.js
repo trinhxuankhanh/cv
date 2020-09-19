@@ -41,7 +41,7 @@ class About extends Component {
     render() {
         let { loading, service } = this.state;
         const { information } = this.state.about;
-        return <div>
+        return <div className="div1">
             {
                 loading ?
                     <div className="sweet-loadingm">

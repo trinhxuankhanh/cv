@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .resume__eduicon img,
@@ -30,7 +31,7 @@
 .resume__expicon p {
     font-weight: 600;
     font-size: 20px;
-    margin: 0 0 10px 0;
+    margin: 0;
 }
 
 .item {

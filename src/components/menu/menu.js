@@ -30,7 +30,7 @@ class Menu extends Component {
     render() {
         const { about, word, resume, contact } = this.state.menu
         return (
-            <div className="mr-3">
+            <div className="m3">
                 {
                     this.state.loading ? <ul className="menu">
                         <li>

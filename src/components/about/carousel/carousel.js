@@ -4,7 +4,7 @@ import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer }
 
 const CarouselPage = () => {
   return (
-    <MDBContainer>
+    <MDBContainer className="car">
       <MDBCarousel
         activeItem={1}
         length={3}

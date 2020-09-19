@@ -17,10 +17,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="context" ref={this.darkcontent}>
+        <div className="context content__mode" ref={this.darkcontent}>
           <Router>
             <Menu />
-            <div className="content">
+            <div id="main" className="content">
               <Base mode={this.darkcontent} bg={this.darkbg}/>
               <Show />
             </div>

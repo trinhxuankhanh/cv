@@ -42,7 +42,7 @@ class Resume extends Component {
         let { loading, education, experience, myskill } = this.state;
         return <div className="row">
             {
-                loading ? <div className="sweet-loading">
+                loading ? <div className="sweet-loading sweet-loading--cus">
                     <RingLoader
                         css={override}
                         size={150}
@@ -64,7 +64,7 @@ class Resume extends Component {
                                         education && education.map((item, index) => {
                                             return <div key={index} className="item">
                                                 <div className="my-3"><span className="time">{item.time}</span></div>
-                                                <p className="name">{item.name}</p>
+                                                <a onClick={() => window.open(item.link)} href="#viewschool" className="name">{item.name}</a>
                                                 <span className="position">{item.position}</span>
                                                 <p>{item.location}</p>
                                                 <p>{item.description}</p>
