@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-    baseURL: 'https://7xnz4.sse.codesandbox.io',
+    baseURL: 'https://my-cv-xuankhanh.herokuapp.com',
 });
 
 axiosClient.interceptors.request.use( async config => {
