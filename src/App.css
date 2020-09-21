@@ -165,21 +165,22 @@ body {
 .content__item--dark .show .row div .resume .resume__exp .resume__expitem .item .my-3 .time,
 .content__item--dark .show .row div .resume .resume__edu .resume__eduitem .item .my-3 .time {color: #fff; border: 1px solid #fff;}
 
-@media only screen and (max-width: 480px){
+@media screen and (min-width: 320px){
     .area{display: none;}
 
     .content__mode {
         flex-direction: column;
-        min-width: 440px;
+        min-width: 303px;
         top: 0
     }
 
-    .m3 {margin: 0 !important;}
+    .m3 {margin: 0;}
 
     .m3 .menu {
         flex-direction: row;
         height: auto;
         margin: 0;
+        padding: 10px 0;
     }
 
     .m3 .menu li {border-top: none;}
@@ -196,7 +197,12 @@ body {
 
     #main .base {width: 100%;}
 
-    #main .base .base__main .base__bot {padding: 3rem 2rem 2rem 2rem}
+    #main .base .base__main .base__img img {max-width: 100%; height: auto;}
+
+    #main .base .base__img::after,
+    #main .base .base__img::before {width: 37%; height: 90%;}
+
+    #main .base .base__main .base__bot {padding: 3rem 0 2rem 0}
 
     #main .base::before {display: none;}
 
@@ -239,4 +245,114 @@ body {
 
     .show div .mycomponent,
     .show .row div .resume {padding: 0 8px 10px 8px}
-  }
+
+    #main .base .base__main .base__bot a{margin-right: 1px;}
+}
+
+@media screen and (min-width: 480px){
+
+    .area{display: block; height:200vh;}
+
+    .area .circles { height: 200%; }
+
+    .content__mode {
+        justify-content: flex-start;
+        top: 10%;
+        padding: 0 2rem;
+    }
+    .m3 {position: relative; margin: 0;}
+    
+    .m3 .menu {
+        flex-direction: column;
+        position: fixed;
+        z-index: 4;
+    }
+
+    .m3 .menu li a {padding: 10px}
+
+    #main {
+        flex-direction: column;
+        margin-left: 100px;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    #main .base,
+    #main .show {
+        width: 100%;
+    }
+
+    #main .base .base__main {
+        width: 100%;
+    }
+
+    #main .base .base__main .base__bot a{margin-right: 1px;}
+
+    #main .base .base__img {text-align: center;}
+
+    #main .base .base__img::after,
+    #main .base .base__img::before {height: 100%;}
+}
+
+@media screen and (min-width: 768px){
+    
+}
+
+@media screen and (min-width: 1024px){
+    .area{height: 100vh;}
+
+    .area .circles { height: 100%; }
+
+    .content__mode {
+        flex-direction: row;
+        padding: 0;
+        justify-content: center !important;
+    }
+    
+    #main {
+        flex-direction: row;
+        width: 70%;
+        align-items: center;
+        margin: 0 auto;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .content__mode .m3 {
+        margin: 0 auto;
+        position: unset;
+        margin-right: 0;
+    }
+
+    .m3 .menu {
+        flex-direction: column;
+        position: unset;
+        z-index: 4;
+    }
+
+    #main .base {
+        width: 600px;
+        margin-left: 1rem;
+    }
+
+    #main .show {
+        width: 700px;
+    }
+
+    #main .base .base__main {
+        width: 100%;
+        margin: 0;
+    }
+
+    #main .base .base__main .base__bot a{margin-right: 1rem;}
+
+    #main .show .div1 .row .about .information li p{
+        font-size: 16px;
+    }
+
+    .show .row div .resume__myskill .skillknow ul .skill__main span {font-size: 16px;}
+
+    #main .show .div1 .row .about .information li span {
+        font-size: 16px;
+    }
+}

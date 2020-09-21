@@ -104,12 +104,12 @@ class Base extends Component {
                             <span className="base__pos">{position}</span>
 
                             <div className="base__contact">
-                                {github && <a href={github.link}
+                                {github && <a href="#git"
                                     onClick={() => window.open(github.link)}
                                     onMouseEnter={(e) => this.changeIcon(github.changeicon, github.icon, e)}>
                                     <img src={github.icon} alt="icon"></img>
                                 </a>}
-                                {facebook && <a href={facebook.link}
+                                {facebook && <a href="#facebook"
                                     onClick={() => window.open(facebook.link)}
                                     onMouseEnter={(e) => this.changeIcon(facebook.changeicon, facebook.icon, e)}>
                                     <img src={facebook.icon} alt="icon"></img>
@@ -122,7 +122,7 @@ class Base extends Component {
                                     onMouseEnter={(e) => this.changeIcon(phone.changeicon, phone.icon, e)}>
                                     <img src={phone.icon} alt="icon"></img>
                                 </a>}
-                                {discord && <a href={discord.link}
+                                {discord && <a href="#discord"
                                     onClick={() => window.open(discord.link)}
                                     onMouseEnter={(e) => this.changeIcon(discord.changeicon, discord.icon, e)}>
                                     <img src={discord.icon} alt="icon"></img>
