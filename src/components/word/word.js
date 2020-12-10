@@ -45,7 +45,7 @@ class Word extends Component {
 
         setTimeout(() => {
             return this.setState({ loading: false })
-        }, 3000)
+        }, 2000)
     }
 
     onGetAllItem() {
@@ -90,6 +90,8 @@ class Word extends Component {
         this.divnone.current.style.display = "none";
         this.divnonevideo.current.style.display = "none";
         this.divimgnone.current.style.display = "none";
+
+        this.videozoom.current.src = '';
     }
 
     zoomVideo(e) {

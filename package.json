@@ -2,6 +2,7 @@
   "name": "mycvbackup",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://trinhxuankhanh.github.io/cv/",
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@testing-library/jest-dom": "^4.2.4",
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
+    "gh-pages": "^3.1.0",
     "mdbreact": "^4.27.0",
     "react": "^16.13.1",
     "react-circular-progressbar": "^2.0.3",
@@ -23,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
